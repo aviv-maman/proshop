@@ -9,7 +9,8 @@ const HomeScreen = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await axios.get(`${process.env.REACT_APP_SERVER}/api/products`);
-      setProducts(res.data);
+      console.log(res);
+      setProducts(res.data?.items);
     };
     fetchProducts();
   }, []);
