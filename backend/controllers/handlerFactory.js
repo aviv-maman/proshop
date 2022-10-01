@@ -12,7 +12,7 @@ exports.deleteOne = (Model) =>
 
     res.status(204).json({
       status: 'success',
-      data: null,
+      item: null,
     });
   });
 
@@ -29,7 +29,7 @@ exports.updateOne = (Model) =>
 
     res.status(200).json({
       status: 'success',
-      data: doc,
+      item: doc,
     });
   });
 
@@ -39,7 +39,7 @@ exports.createOne = (Model) =>
 
     res.status(201).json({
       status: 'success',
-      data: doc,
+      item: doc,
     });
   });
 
@@ -55,7 +55,7 @@ exports.getOne = (Model, popOptions) =>
 
     res.status(200).json({
       status: 'success',
-      data: doc,
+      item: doc,
     });
   });
 
