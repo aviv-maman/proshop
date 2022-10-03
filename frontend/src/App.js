@@ -1,6 +1,7 @@
 //Pages
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
 //Components
 import { Container } from 'react-bootstrap';
 import Header from './components/Header';
@@ -17,6 +18,8 @@ function App() {
           <Routes>
             <Route index path='/' element={<HomeScreen />} />
             <Route path='/product/:id' element={<ProductScreen />} />
+            <Route path='/cart' element={<CartScreen />} />
+            <Route path='/cart/:id' element={<CartScreen />} />
           </Routes>
         </Container>
       </main>
