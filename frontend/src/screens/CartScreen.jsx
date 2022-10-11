@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Button,
   Card,
@@ -10,12 +10,11 @@ import {
   Row,
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import Message from '../components/Message';
 
 const CartScreen = () => {
-  // const { id } = useParams();
   const navigate = useNavigate();
 
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -27,19 +26,12 @@ const CartScreen = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (id) {
-  //     dispatch(addToCart(id, qty));
-  //   } else {
-  //   }
-  // }, [dispatch, id, qty]);
-
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
-    navigate('/login?redirect=shipping');
+    navigate('/shipping');
   };
 
   return (

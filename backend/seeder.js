@@ -10,6 +10,9 @@ const connectDB = require('./configs/db');
 
 // dotenv.config();
 
+// npm run data:import
+// npm run data:destroy
+
 connectDB();
 
 const importData = async (req, res, next) => {
@@ -18,7 +21,7 @@ const importData = async (req, res, next) => {
     await Product.deleteMany();
     await User.deleteMany();
 
-    const createdUsers = await User.insertMany(users);
+    const createdUsers = await User.create(users, { validateBeforeSave: false });
 
     const adminUser = createdUsers[0]._id;
 

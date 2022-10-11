@@ -71,6 +71,22 @@ const orderSchema = mongoose.Schema(
   { timestamps: true }
 );
 
+orderSchema.pre(/^find/, function (next) {
+  // this.populate({
+  //   path: 'tour',
+  //   select: 'name'
+  // }).populate({
+  //   path: 'user',
+  //   select: 'name photo'
+  // });
+
+  this.populate({
+    path: 'user',
+    select: 'name email',
+  });
+  next();
+});
+
 const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
